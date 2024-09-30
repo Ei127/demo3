@@ -2,7 +2,7 @@ import { convertFileToBase64 } from "@configs/fileUpload";
 import models from "@models";
 import { Request, Response } from "express";
 import { ApplicationController } from ".";
-import { CategoryInstance } from "../models/category";
+import { PayementInstance } from "../models/payement";
 import { UserInstance } from "../models/user";
 
 export class DevController extends ApplicationController {
@@ -21,15 +21,12 @@ export class DevController extends ApplicationController {
       where: {
         id: +req.params.id,
       },
-      include: [
-        { model: models.product, as: "cartProducts" },
-        { model: models.order },
-      ],
+      include: [{ model: models.room }, { model: models.payement }],
     })) as UserInstance;
 
     if (user) {
       req.session.userId = user.id;
-      req.flash("success", { msg: `Get user: ${user.name}.` });
+      req.flash("success", { msg: `Get user: ${user.lastName}.` });
     } else {
       req.flash("errors", {
         msg: `User with id: ${req.params.id} does not found.`,
@@ -45,23 +42,26 @@ export class DevController extends ApplicationController {
 
   public async create(req: Request, res: Response) {
     const file = req.file ? convertFileToBase64(req.file) : null;
-    await models.category.create({
-      name: req.body.name,
-      description: req.body.description,
-      image: file,
+    await models.payement.create({
+      userID: req.body.userID,
+      userFirstName: req.body.userFirstName,
+      userLastName: req.body.userLastName,
+      roomID: req.body.roomID,
+      totalPrice: req.body.totalPrice,
+      status: req.body.status,
     });
 
     res.redirect("/");
   }
 
   public async edit(req: Request, res: Response) {
-    const category = (await models.category.findOne({
+    const payement = (await models.payement.findOne({
       where: {
         id: +req.params.id,
       },
-    })) as CategoryInstance;
+    })) as PayementInstance;
 
-    res.render("dev.view/edit", { category: category });
+    res.render("dev.view/edit", { payement: payement });
   }
 
   public async update(req: Request, res: Response) {}

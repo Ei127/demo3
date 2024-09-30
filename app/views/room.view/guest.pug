@@ -1,0 +1,52 @@
+extends ../layout
+
+block content
+  section.bg-light
+    .container
+      form(action=`/rooms/fillter-rooms` method="GET")
+        .row
+          .col-12
+            .form-group
+              label(for='options') Choose room type:
+              select#options(name='roomType')
+                option(value= 1) Single Room
+                option(value= 2) Couple Room
+                option(value= 3) VIP
+          .col-12
+            button.btn.btn-primary.w-100(type="submit") Submit
+            br
+            br
+      table.table.text-center
+        thead
+          tr.table-warning
+            th(scope='col') Number
+            th(scope='col') Room Type
+            th(scope='col') Cost
+            th(scope='col') Status
+            th(scope='col') Booking
+        tbody
+          each room in rooms
+            tr
+              th(scope='row')= room.roomNumber
+              - if(room.roomTypeID == 1)
+                  td Single room
+              - else if(room.roomTypeID == 2)
+                  td Couple room
+              - else
+                  td VIP room
+              td= room.cost
+              - if(room.status == 0)
+                  td Empty
+              - else if(room.status == 1)
+                  td Booked
+              - else
+                  td Fixing
+              - if(room.status == 0)
+                  td
+                    form(method="POST" action=`/booking`)
+                      input(type="hidden" name="roomID" value=`${room.id}`)
+                      button.btn.btn-primary(type="submit")
+                        i.fa-solid.fa-coins
+              - else
+                  td
+                    button.btn.btn-secondary(type='button' disabled='') Booked

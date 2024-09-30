@@ -3,25 +3,24 @@ import { HomeController } from "@controllers";
 import { Router } from "express";
 import { RestActions } from "../enum";
 import { AuthRoute } from "./auth.route";
-import { CartRoute } from "./cart.route";
-import { CategoryRoute } from "./category.route";
+import { BookingRoute } from "./booking.route";
 import { DevRoute } from "./dev.route";
-import { ProductRoute } from "./product.route";
+import { GuestRoute } from "./guest.route";
+import { PayementRoute } from "./payement.route";
+import { RoomRoute } from "./room.route";
 import { UserRoute } from "./user.route";
-
 export class Route {
   private static path = Router();
   private static homeController = new HomeController();
 
   public static draw() {
     if (env.nodeEnv === "development") this.path.use("/dev", DevRoute.draw());
-
     this.path.use("/auth", AuthRoute.draw());
+    this.path.use("/payement", PayementRoute.draw());
     this.path.use("/users", UserRoute.draw());
-    this.path.use("/categories", CategoryRoute.draw());
-    this.path.use("/carts", CartRoute.draw());
-    this.path.use("/products", ProductRoute.draw());
-
+    this.path.use("/guests", GuestRoute.draw());
+    this.path.use("/booking", BookingRoute.draw());
+    this.path.use("/rooms", RoomRoute.draw());
     Route.resource(this.path, this.homeController, {
       only: [RestActions.Index],
     });

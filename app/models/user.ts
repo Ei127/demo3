@@ -1,21 +1,20 @@
 import sequelize from "@configs/database";
 import { Sequelize } from "sequelize";
-import { cart } from "./cart";
-import { order } from "./order";
-import { product } from "./product";
-
+import { roomBooking } from "./roombooking";
 export enum Role {
-  ADMIN = 0,
-  USER = 1,
+  Guest = 3,
+  MANAGER = 0,
+  Receptionist = 1,
 }
-
 export interface UserAttributes {
-  id: number;
-  name?: string;
-  avatarUrl?: string;
-  email?: string;
+  firstName?: string;
+  lastName?: string;
+  contactNumber?: string;
+  emailAddress?: string;
   password?: string;
-  role?: Role;
+  creditCard?: string;
+  proofID?: string;
+  role?: number;
 }
 
 export interface UserInstance {
@@ -23,28 +22,33 @@ export interface UserInstance {
   createdAt: Date;
   updatedAt: Date;
 
-  name: string;
-  avatarUrl: string;
-  email: string;
+  firstName: string;
+  lastName: string;
+  contactNumber: string;
+  emailAddress: string;
   password: string;
+  creditCard: string;
+  proofID: string;
   role: Role;
 }
-
 export const user = sequelize.define("user", {
-  name: Sequelize.STRING,
-  avatarUrl: Sequelize.STRING,
-  email: Sequelize.STRING,
+  firstName: Sequelize.STRING,
+  lastName: Sequelize.STRING,
+  contactNumber: Sequelize.STRING,
+  emailAddress: Sequelize.STRING,
   password: Sequelize.STRING,
+  creditCard: Sequelize.STRING,
+  proofID: Sequelize.STRING,
   role: Sequelize.INTEGER,
 });
 
 export const associate = () => {
-  user.hasMany(cart);
-  user.belongsToMany(product, {
-    through: cart,
-    as: "cartProducts",
+  user.hasMany(roomBooking, {
+    foreignKey: "userID",
   });
-  user.hasMany(order);
 };
 
-export default { user, associate };
+export default {
+  user,
+  associate,
+};

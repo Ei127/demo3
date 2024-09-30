@@ -1,22 +1,23 @@
-import cartModel, { cart } from "./cart";
-import categoryModel, { category } from "./category";
-import orderModel, { order } from "./order";
-import productModel, { product } from "./product";
-import productOrderModel, { productOrder } from "./productOrder";
+import hotelModel, { hotel } from "./hotel";
+import payementModel, { payement } from "./payement";
+import ratingModel, { rating } from "./rating";
+import roomModel, { room } from "./room";
+import roombookingModel, { roomBooking } from "./roombooking";
+import roomtypeModel, { roomType } from "./roomtype";
 import userModel, { user } from "./user";
-
-cartModel.associate();
-categoryModel.associate();
-orderModel.associate();
-productModel.associate();
-productOrderModel.associate();
+hotelModel.associate();
+payementModel.associate();
+ratingModel.associate();
+roomModel.associate();
+roombookingModel.associate();
+roomtypeModel.associate();
 userModel.associate();
-
 export default {
-  cart,
-  category,
-  order,
-  product,
-  productOrder,
+  room,
+  roomType,
+  roomBooking,
+  hotel,
+  rating,
+  payement,
   user,
 };

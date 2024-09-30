@@ -1,212 +1,444 @@
 extends ../layout
 
 block content
-  header.masthead
+  .container-xxl.py-5
     .container
-      .masthead-subheading Welcome To Our Studio!
-      .masthead-heading.text-uppercase It&apos;s Nice To Meet You
-      a.btn.btn-primary.btn-xl.text-uppercase(href='#services') Tell Me More
-    script(type="text/javascript" src="/javascripts/navBar.js")
-  section#services.page-section
+      .row.g-5
+        .col-lg-6.wow.fadeInUp(data-wow-delay='0.1s' style='min-height: 400px;')
+          .position-relative.h-100
+            img.img-fluid.position-absolute.w-100.h-100(src='img/about.jpg' alt='' style='object-fit: cover;')
+        .col-lg-6.wow.fadeInUp(data-wow-delay='0.3s')
+          h6.section-title.bg-white.text-start.text-primary.pe-3 About Us
+          h1.mb-4
+            | Welcome to 
+            span.text-primary Tourist
+          p.mb-4
+            | Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.
+          p.mb-4
+            | Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet
+          .row.gy-2.gx-4.mb-4
+            .col-sm-6
+              p.mb-0
+                i.fa.fa-arrow-right.text-primary.me-2
+                | First Class Flights
+            .col-sm-6
+              p.mb-0
+                i.fa.fa-arrow-right.text-primary.me-2
+                | Handpicked Hotels
+            .col-sm-6
+              p.mb-0
+                i.fa.fa-arrow-right.text-primary.me-2
+                | 5 Star Accommodations
+            .col-sm-6
+              p.mb-0
+                i.fa.fa-arrow-right.text-primary.me-2
+                | Latest Model Vehicles
+            .col-sm-6
+              p.mb-0
+                i.fa.fa-arrow-right.text-primary.me-2
+                | 150 Premium City Tours
+            .col-sm-6
+              p.mb-0
+                i.fa.fa-arrow-right.text-primary.me-2
+                | 24/7 Service
+          a.btn.btn-primary.py-3.px-5.mt-2(href='') Read More
+  .container-xxl.py-5
+    .container
+      .text-center.wow.fadeInUp(data-wow-delay='0.1s')
+        h6.section-title.bg-white.text-center.text-primary.px-3 Services
+        h1.mb-5 Our Services
+      .row.g-4
+        .col-lg-3.col-sm-6.wow.fadeInUp(data-wow-delay='0.1s')
+          .service-item.rounded.pt-3
+            .p-4
+              i.fa.fa-3x.fa-globe.text-primary.mb-4
+              h5 WorldWide Tours
+              p Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam
+        .col-lg-3.col-sm-6.wow.fadeInUp(data-wow-delay='0.3s')
+          .service-item.rounded.pt-3
+            .p-4
+              i.fa.fa-3x.fa-hotel.text-primary.mb-4
+              h5 Hotel Reservation
+              p Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam
+        .col-lg-3.col-sm-6.wow.fadeInUp(data-wow-delay='0.5s')
+          .service-item.rounded.pt-3
+            .p-4
+              i.fa.fa-3x.fa-user.text-primary.mb-4
+              h5 Travel Guides
+              p Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam
+        .col-lg-3.col-sm-6.wow.fadeInUp(data-wow-delay='0.7s')
+          .service-item.rounded.pt-3
+            .p-4
+              i.fa.fa-3x.fa-cog.text-primary.mb-4
+              h5 Event Management
+              p Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam
+        .col-lg-3.col-sm-6.wow.fadeInUp(data-wow-delay='0.1s')
+          .service-item.rounded.pt-3
+            .p-4
+              i.fa.fa-3x.fa-globe.text-primary.mb-4
+              h5 WorldWide Tours
+              p Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam
+        .col-lg-3.col-sm-6.wow.fadeInUp(data-wow-delay='0.3s')
+          .service-item.rounded.pt-3
+            .p-4
+              i.fa.fa-3x.fa-hotel.text-primary.mb-4
+              h5 Hotel Reservation
+              p Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam
+        .col-lg-3.col-sm-6.wow.fadeInUp(data-wow-delay='0.5s')
+          .service-item.rounded.pt-3
+            .p-4
+              i.fa.fa-3x.fa-user.text-primary.mb-4
+              h5 Travel Guides
+              p Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam
+        .col-lg-3.col-sm-6.wow.fadeInUp(data-wow-delay='0.7s')
+          .service-item.rounded.pt-3
+            .p-4
+              i.fa.fa-3x.fa-cog.text-primary.mb-4
+              h5 Event Management
+              p Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam
+  .container-xxl.py-5.destination
+    .container
+      .text-center.wow.fadeInUp(data-wow-delay='0.1s')
+        h6.section-title.bg-white.text-center.text-primary.px-3 Destination
+        h1.mb-5 Popular Destination
+      .row.g-3
+        .col-lg-7.col-md-6
+          .row.g-3
+            .col-lg-12.col-md-12.wow.zoomIn(data-wow-delay='0.1s')
+              a.position-relative.d-block.overflow-hidden(href='')
+                img.img-fluid(src='img/destination-1.jpg' alt='')
+                .bg-white.text-danger.fw-bold.position-absolute.top-0.start-0.m-3.py-1.px-2 30% OFF
+                .bg-white.text-primary.fw-bold.position-absolute.bottom-0.end-0.m-3.py-1.px-2 Thailand
+            .col-lg-6.col-md-12.wow.zoomIn(data-wow-delay='0.3s')
+              a.position-relative.d-block.overflow-hidden(href='')
+                img.img-fluid(src='img/destination-2.jpg' alt='')
+                .bg-white.text-danger.fw-bold.position-absolute.top-0.start-0.m-3.py-1.px-2 25% OFF
+                .bg-white.text-primary.fw-bold.position-absolute.bottom-0.end-0.m-3.py-1.px-2 Malaysia
+            .col-lg-6.col-md-12.wow.zoomIn(data-wow-delay='0.5s')
+              a.position-relative.d-block.overflow-hidden(href='')
+                img.img-fluid(src='img/destination-3.jpg' alt='')
+                .bg-white.text-danger.fw-bold.position-absolute.top-0.start-0.m-3.py-1.px-2 35% OFF
+                .bg-white.text-primary.fw-bold.position-absolute.bottom-0.end-0.m-3.py-1.px-2 Australia
+        .col-lg-5.col-md-6.wow.zoomIn(data-wow-delay='0.7s' style='min-height: 350px;')
+          a.position-relative.d-block.h-100.overflow-hidden(href='')
+            img.img-fluid.position-absolute.w-100.h-100(src='img/destination-4.jpg' alt='' style='object-fit: cover;')
+            .bg-white.text-danger.fw-bold.position-absolute.top-0.start-0.m-3.py-1.px-2 20% OFF
+            .bg-white.text-primary.fw-bold.position-absolute.bottom-0.end-0.m-3.py-1.px-2 Indonesia
+  .container-xxl.py-5
+    .container
+      .text-center.wow.fadeInUp(data-wow-delay='0.1s')
+        h6.section-title.bg-white.text-center.text-primary.px-3 Packages
+        h1.mb-5 Awesome Packages
+      .row.g-4.justify-content-center
+        .col-lg-4.col-md-6.wow.fadeInUp(data-wow-delay='0.1s')
+          .package-item
+            .overflow-hidden
+              img.img-fluid(src='img/package-1.jpg' alt='')
+            .d-flex.border-bottom
+              small.flex-fill.text-center.border-end.py-2
+                i.fa.fa-map-marker-alt.text-primary.me-2
+                | Thailand
+              small.flex-fill.text-center.border-end.py-2
+                i.fa.fa-calendar-alt.text-primary.me-2
+                | 3 days
+              small.flex-fill.text-center.py-2
+                i.fa.fa-user.text-primary.me-2
+                | 2 Person
+            .text-center.p-4
+              h3.mb-0 $149.00
+              .mb-3
+                small.fa.fa-star.text-primary
+                small.fa.fa-star.text-primary
+                small.fa.fa-star.text-primary
+                small.fa.fa-star.text-primary
+                small.fa.fa-star.text-primary
+              p Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos
+              .d-flex.justify-content-center.mb-2
+                a.btn.btn-sm.btn-primary.px-3.border-end(href='#' style='border-radius: 30px 0 0 30px;') Read More
+                a.btn.btn-sm.btn-primary.px-3(href='#' style='border-radius: 0 30px 30px 0;') Book Now
+        .col-lg-4.col-md-6.wow.fadeInUp(data-wow-delay='0.3s')
+          .package-item
+            .overflow-hidden
+              img.img-fluid(src='img/package-2.jpg' alt='')
+            .d-flex.border-bottom
+              small.flex-fill.text-center.border-end.py-2
+                i.fa.fa-map-marker-alt.text-primary.me-2
+                | Indonesia
+              small.flex-fill.text-center.border-end.py-2
+                i.fa.fa-calendar-alt.text-primary.me-2
+                | 3 days
+              small.flex-fill.text-center.py-2
+                i.fa.fa-user.text-primary.me-2
+                | 2 Person
+            .text-center.p-4
+              h3.mb-0 $139.00
+              .mb-3
+                small.fa.fa-star.text-primary
+                small.fa.fa-star.text-primary
+                small.fa.fa-star.text-primary
+                small.fa.fa-star.text-primary
+                small.fa.fa-star.text-primary
+              p Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos
+              .d-flex.justify-content-center.mb-2
+                a.btn.btn-sm.btn-primary.px-3.border-end(href='#' style='border-radius: 30px 0 0 30px;') Read More
+                a.btn.btn-sm.btn-primary.px-3(href='#' style='border-radius: 0 30px 30px 0;') Book Now
+        .col-lg-4.col-md-6.wow.fadeInUp(data-wow-delay='0.5s')
+          .package-item
+            .overflow-hidden
+              img.img-fluid(src='img/package-3.jpg' alt='')
+            .d-flex.border-bottom
+              small.flex-fill.text-center.border-end.py-2
+                i.fa.fa-map-marker-alt.text-primary.me-2
+                | Malaysia
+              small.flex-fill.text-center.border-end.py-2
+                i.fa.fa-calendar-alt.text-primary.me-2
+                | 3 days
+              small.flex-fill.text-center.py-2
+                i.fa.fa-user.text-primary.me-2
+                | 2 Person
+            .text-center.p-4
+              h3.mb-0 $189.00
+              .mb-3
+                small.fa.fa-star.text-primary
+                small.fa.fa-star.text-primary
+                small.fa.fa-star.text-primary
+                small.fa.fa-star.text-primary
+                small.fa.fa-star.text-primary
+              p Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos
+              .d-flex.justify-content-center.mb-2
+                a.btn.btn-sm.btn-primary.px-3.border-end(href='#' style='border-radius: 30px 0 0 30px;') Read More
+                a.btn.btn-sm.btn-primary.px-3(href='#' style='border-radius: 0 30px 30px 0;') Book Now
+  .container-xxl.py-5.wow.fadeInUp(data-wow-delay='0.1s')
+    .container
+      .booking.p-5
+        .row.g-5.align-items-center
+          .col-md-6.text-white
+            h6.text-white.text-uppercase Booking
+            h1.text-white.mb-4 Online Booking
+            p.mb-4
+              | Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.
+            p.mb-4
+              | Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet
+            a.btn.btn-outline-light.py-3.px-5.mt-2(href='') Read More
+          .col-md-6
+            h1.text-white.mb-4 Book A Tour
+            form
+              .row.g-3
+                .col-md-6
+                  .form-floating
+                    input#name.form-control.bg-transparent(type='text' placeholder='Your Name')
+                    label(for='name') Your Name
+                .col-md-6
+                  .form-floating
+                    input#email.form-control.bg-transparent(type='email' placeholder='Your Email')
+                    label(for='email') Your Email
+                .col-md-6
+                  #date3.form-floating.date(data-target-input='nearest')
+                    input#datetime.form-control.bg-transparent.datetimepicker-input(type='text' placeholder='Date & Time' data-target='#date3' data-toggle='datetimepicker')
+                    label(for='datetime') Date &amp; Time
+                .col-md-6
+                  .form-floating
+                    select#select1.form-select.bg-transparent
+                      option(value='1') Destination 1
+                      option(value='2') Destination 2
+                      option(value='3') Destination 3
+                    label(for='select1') Destination
+                .col-12
+                  .form-floating
+                    textarea#message.form-control.bg-transparent(placeholder='Special Request' style='height: 100px')
+                    label(for='message') Special Request
+                .col-12
+                  button.btn.btn-outline-light.w-100.py-3(type='submit') Book Now
+  .container-xxl.py-5
+    .container
+      .text-center.pb-4.wow.fadeInUp(data-wow-delay='0.1s')
+        h6.section-title.bg-white.text-center.text-primary.px-3 Process
+        h1.mb-5 3 Easy Steps
+      .row.gy-5.gx-4.justify-content-center
+        .col-lg-4.col-sm-6.text-center.pt-4.wow.fadeInUp(data-wow-delay='0.1s')
+          .position-relative.border.border-primary.pt-5.pb-4.px-4
+            .d-inline-flex.align-items-center.justify-content-center.bg-primary.rounded-circle.position-absolute.top-0.start-50.translate-middle.shadow(style='width: 100px; height: 100px;')
+              i.fa.fa-globe.fa-3x.text-white
+            h5.mt-4 Choose A Destination
+            hr.w-25.mx-auto.bg-primary.mb-1
+            hr.w-50.mx-auto.bg-primary.mt-0
+            p.mb-0
+              | Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit
+        .col-lg-4.col-sm-6.text-center.pt-4.wow.fadeInUp(data-wow-delay='0.3s')
+          .position-relative.border.border-primary.pt-5.pb-4.px-4
+            .d-inline-flex.align-items-center.justify-content-center.bg-primary.rounded-circle.position-absolute.top-0.start-50.translate-middle.shadow(style='width: 100px; height: 100px;')
+              i.fa.fa-dollar-sign.fa-3x.text-white
+            h5.mt-4 Pay Online
+            hr.w-25.mx-auto.bg-primary.mb-1
+            hr.w-50.mx-auto.bg-primary.mt-0
+            p.mb-0
+              | Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit
+        .col-lg-4.col-sm-6.text-center.pt-4.wow.fadeInUp(data-wow-delay='0.5s')
+          .position-relative.border.border-primary.pt-5.pb-4.px-4
+            .d-inline-flex.align-items-center.justify-content-center.bg-primary.rounded-circle.position-absolute.top-0.start-50.translate-middle.shadow(style='width: 100px; height: 100px;')
+              i.fa.fa-plane.fa-3x.text-white
+            h5.mt-4 Fly Today
+            hr.w-25.mx-auto.bg-primary.mb-1
+            hr.w-50.mx-auto.bg-primary.mt-0
+            p.mb-0
+              | Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit
+  .container-xxl.py-5
+    .container
+      .text-center.wow.fadeInUp(data-wow-delay='0.1s')
+        h6.section-title.bg-white.text-center.text-primary.px-3 Travel Guide
+        h1.mb-5 Meet Our Guide
+      .row.g-4
+        .col-lg-3.col-md-6.wow.fadeInUp(data-wow-delay='0.1s')
+          .team-item
+            .overflow-hidden
+              img.img-fluid(src='img/team-1.jpg' alt='')
+            .position-relative.d-flex.justify-content-center(style='margin-top: -19px;')
+              a.btn.btn-square.mx-1(href='')
+                i.fab.fa-facebook-f
+              a.btn.btn-square.mx-1(href='')
+                i.fab.fa-twitter
+              a.btn.btn-square.mx-1(href='')
+                i.fab.fa-instagram
+            .text-center.p-4
+              h5.mb-0 Full Name
+              small Designation
+        .col-lg-3.col-md-6.wow.fadeInUp(data-wow-delay='0.3s')
+          .team-item
+            .overflow-hidden
+              img.img-fluid(src='img/team-2.jpg' alt='')
+            .position-relative.d-flex.justify-content-center(style='margin-top: -19px;')
+              a.btn.btn-square.mx-1(href='')
+                i.fab.fa-facebook-f
+              a.btn.btn-square.mx-1(href='')
+                i.fab.fa-twitter
+              a.btn.btn-square.mx-1(href='')
+                i.fab.fa-instagram
+            .text-center.p-4
+              h5.mb-0 Full Name
+              small Designation
+        .col-lg-3.col-md-6.wow.fadeInUp(data-wow-delay='0.5s')
+          .team-item
+            .overflow-hidden
+              img.img-fluid(src='img/team-3.jpg' alt='')
+            .position-relative.d-flex.justify-content-center(style='margin-top: -19px;')
+              a.btn.btn-square.mx-1(href='')
+                i.fab.fa-facebook-f
+              a.btn.btn-square.mx-1(href='')
+                i.fab.fa-twitter
+              a.btn.btn-square.mx-1(href='')
+                i.fab.fa-instagram
+            .text-center.p-4
+              h5.mb-0 Full Name
+              small Designation
+        .col-lg-3.col-md-6.wow.fadeInUp(data-wow-delay='0.7s')
+          .team-item
+            .overflow-hidden
+              img.img-fluid(src='img/team-4.jpg' alt='')
+            .position-relative.d-flex.justify-content-center(style='margin-top: -19px;')
+              a.btn.btn-square.mx-1(href='')
+                i.fab.fa-facebook-f
+              a.btn.btn-square.mx-1(href='')
+                i.fab.fa-twitter
+              a.btn.btn-square.mx-1(href='')
+                i.fab.fa-instagram
+            .text-center.p-4
+              h5.mb-0 Full Name
+              small Designation
+  .container-xxl.py-5.wow.fadeInUp(data-wow-delay='0.1s')
     .container
       .text-center
-        h2.section-heading.text-uppercase Services
-        h3.section-subheading.text-muted Lorem ipsum dolor sit amet consectetur.
-      .row.text-center
-        .col-md-4
-          span.fa-stack.fa-4x
-            i.fa.fa-circle.fa-stack-2x.text-primary
-            i.fa.fa-shopping-cart.fa-stack-1x.fa-inverse
-          h4.my-3 E-Commerce
-          p.text-muted
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.
-        .col-md-4
-          span.fa-stack.fa-4x
-            i.fa.fa-circle.fa-stack-2x.text-primary
-            i.fa.fa-laptop.fa-stack-1x.fa-inverse
-          h4.my-3 Responsive Design
-          p.text-muted
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.
-        .col-md-4
-          span.fa-stack.fa-4x
-            i.fa.fa-circle.fa-stack-2x.text-primary
-            i.fa.fa-lock.fa-stack-1x.fa-inverse
-          h4.my-3 Web Security
-          p.text-muted
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.
-  section#portfolio.page-section.bg-light
-    .container
-      .text-center
-        h2.section-heading.text-uppercase Products
-        h3.section-subheading.text-muted List products in systems.
-      .row
-        each product in products
-          .col-lg-4.col-sm-6.mb-4
-            // Portfolio item 1
-            .portfolio-item
-              a.portfolio-link(data-bs-toggle='modal', href=`#portfolioModal-${product.id}`)
-                .portfolio-hover
-                  .portfolio-hover-content
-                    i.fa.fa-plus.fa-3x
-                - if(product.image)
-                  img.img-fluid(src=`data:image/png;base64,${product.image.toString('base64')}`, alt=`${product.name}`)
-                - else
-                  img.img-fluid(src='/images/img/portfolio/1.jpg', alt='...')
-              .portfolio-caption
-                .portfolio-caption-heading= product.name
-                .portfolio-caption-subheading.text-muted
-                  | $
-                  = product.price
-      .d-flex.justify-content-center
-        nav(aria-label='Page navigation example')
-          ul.pagination.justify-content-center.align-items-center
-            li.page-item(class=`${currentPage <= 1 ? 'disabled' : ''}`)
-              a.page-link(href=`/?pageSize=${pageSize}&currentPage=${currentPage-1}` tabindex='-1') Previous
-            li.page-item
-              form(method="GET" action='/')
-                input(type="text" name='pageSize' placeholder="Page Size")
-                input(type="text" name='currentPage' placeholder="Current Page")
-                input(type="submit", value="Go")
-            li.page-item(class=`${ products.length < pageSize ? 'disabled' : ''}`)
-              a.page-link(href=`/?pageSize=${pageSize}&currentPage=${currentPage+1}`) Next
-  section#about.page-section
-    .container
-      .text-center
-        h2.section-heading.text-uppercase About
-        h3.section-subheading.text-muted Lorem ipsum dolor sit amet consectetur.
-      ul.timeline
-        li
-          .timeline-image
-            img.rounded-circle.img-fluid(src='/images/img/about/1.jpg', alt='...')
-          .timeline-panel
-            .timeline-heading
-              h4 2009-2011
-              h4.subheading Our Humble Beginnings
-            .timeline-body
-              p.text-muted
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
-        li.timeline-inverted
-          .timeline-image
-            img.rounded-circle.img-fluid(src='/images/img/about/2.jpg', alt='...')
-          .timeline-panel
-            .timeline-heading
-              h4 March 2011
-              h4.subheading An Agency is Born
-            .timeline-body
-              p.text-muted
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
-        li
-          .timeline-image
-            img.rounded-circle.img-fluid(src='/images/img/about/3.jpg', alt='...')
-          .timeline-panel
-            .timeline-heading
-              h4 December 2015
-              h4.subheading Transition to Full Service
-            .timeline-body
-              p.text-muted
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
-        li.timeline-inverted
-          .timeline-image
-            img.rounded-circle.img-fluid(src='/images/img/about/4.jpg', alt='...')
-          .timeline-panel
-            .timeline-heading
-              h4 July 2020
-              h4.subheading Phase Two Expansion
-            .timeline-body
-              p.text-muted
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
-        li.timeline-inverted
-          .timeline-image
-            h4
-              | Be Part
-              br
-              | Of Our
-              br
-              | Story!
-  section#team.page-section.bg-light
-    .container
-      .text-center
-        h2.section-heading.text-uppercase Our Amazing Team
-        h3.section-subheading.text-muted Lorem ipsum dolor sit amet consectetur.
-      .row
-        .col-lg-4
-          .team-member
-            img.mx-auto.rounded-circle(src='/images/img/team/1.jpg', alt='...')
-            h4 Parveen Anand
-            p.text-muted Lead Designer
-            a.btn.btn-dark.btn-social.mx-2(href='#!', aria-label='Parveen Anand Twitter Profile')
+        h6.section-title.bg-white.text-center.text-primary.px-3 Testimonial
+        h1.mb-5 Our Clients Say!!!
+      .owl-carousel.testimonial-carousel.position-relative
+        .testimonial-item.bg-white.text-center.border.p-4
+          img.bg-white.rounded-circle.shadow.p-1.mx-auto.mb-3(src='img/testimonial-1.jpg' style='width: 80px; height: 80px;')
+          h5.mb-0 John Doe
+          p New York, USA
+          p.mb-0
+            | Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.
+        .testimonial-item.bg-white.text-center.border.p-4
+          img.bg-white.rounded-circle.shadow.p-1.mx-auto.mb-3(src='img/testimonial-2.jpg' style='width: 80px; height: 80px;')
+          h5.mb-0 John Doe
+          p New York, USA
+          p.mt-2.mb-0
+            | Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.
+        .testimonial-item.bg-white.text-center.border.p-4
+          img.bg-white.rounded-circle.shadow.p-1.mx-auto.mb-3(src='img/testimonial-3.jpg' style='width: 80px; height: 80px;')
+          h5.mb-0 John Doe
+          p New York, USA
+          p.mt-2.mb-0
+            | Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.
+        .testimonial-item.bg-white.text-center.border.p-4
+          img.bg-white.rounded-circle.shadow.p-1.mx-auto.mb-3(src='img/testimonial-4.jpg' style='width: 80px; height: 80px;')
+          h5.mb-0 John Doe
+          p New York, USA
+          p.mt-2.mb-0
+            | Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.
+  .container-fluid.bg-dark.text-light.footer.pt-5.mt-5.wow.fadeIn(data-wow-delay='0.1s')
+    .container.py-5
+      .row.g-5
+        .col-lg-3.col-md-6
+          h4.text-white.mb-3 Company
+          a.btn.btn-link(href='') About Us
+          a.btn.btn-link(href='') Contact Us
+          a.btn.btn-link(href='') Privacy Policy
+          a.btn.btn-link(href='') Terms &amp; Condition
+          a.btn.btn-link(href='') FAQs &amp; Help
+        .col-lg-3.col-md-6
+          h4.text-white.mb-3 Contact
+          p.mb-2
+            i.fa.fa-map-marker-alt.me-3
+            | 123 Street, New York, USA
+          p.mb-2
+            i.fa.fa-phone-alt.me-3
+            | +012 345 67890
+          p.mb-2
+            i.fa.fa-envelope.me-3
+            | info@example.com
+          .d-flex.pt-2
+            a.btn.btn-outline-light.btn-social(href='')
               i.fab.fa-twitter
-            a.btn.btn-dark.btn-social.mx-2(href='#!', aria-label='Parveen Anand Facebook Profile')
+            a.btn.btn-outline-light.btn-social(href='')
               i.fab.fa-facebook-f
-            a.btn.btn-dark.btn-social.mx-2(href='#!', aria-label='Parveen Anand LinkedIn Profile')
+            a.btn.btn-outline-light.btn-social(href='')
+              i.fab.fa-youtube
+            a.btn.btn-outline-light.btn-social(href='')
               i.fab.fa-linkedin-in
-        .col-lg-4
-          .team-member
-            img.mx-auto.rounded-circle(src='/images/img/team/2.jpg', alt='...')
-            h4 Diana Petersen
-            p.text-muted Lead Marketer
-            a.btn.btn-dark.btn-social.mx-2(href='#!', aria-label='Diana Petersen Twitter Profile')
-              i.fab.fa-twitter
-            a.btn.btn-dark.btn-social.mx-2(href='#!', aria-label='Diana Petersen Facebook Profile')
-              i.fab.fa-facebook-f
-            a.btn.btn-dark.btn-social.mx-2(href='#!', aria-label='Diana Petersen LinkedIn Profile')
-              i.fab.fa-linkedin-in
-        .col-lg-4
-          .team-member
-            img.mx-auto.rounded-circle(src='/images/img/team/3.jpg', alt='...')
-            h4 Larry Parker
-            p.text-muted Lead Developer
-            a.btn.btn-dark.btn-social.mx-2(href='#!', aria-label='Larry Parker Twitter Profile')
-              i.fab.fa-twitter
-            a.btn.btn-dark.btn-social.mx-2(href='#!', aria-label='Larry Parker Facebook Profile')
-              i.fab.fa-facebook-f
-            a.btn.btn-dark.btn-social.mx-2(href='#!', aria-label='Larry Parker LinkedIn Profile')
-              i.fab.fa-linkedin-in
-      .row
-        .col-lg-8.mx-auto.text-center
-          p.large.text-muted
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.
-
-  .py-5
+        .col-lg-3.col-md-6
+          h4.text-white.mb-3 Gallery
+          .row.g-2.pt-2
+            .col-4
+              img.img-fluid.bg-light.p-1(src='img/package-1.jpg' alt='')
+            .col-4
+              img.img-fluid.bg-light.p-1(src='img/package-2.jpg' alt='')
+            .col-4
+              img.img-fluid.bg-light.p-1(src='img/package-3.jpg' alt='')
+            .col-4
+              img.img-fluid.bg-light.p-1(src='img/package-2.jpg' alt='')
+            .col-4
+              img.img-fluid.bg-light.p-1(src='img/package-3.jpg' alt='')
+            .col-4
+              img.img-fluid.bg-light.p-1(src='img/package-1.jpg' alt='')
+        .col-lg-3.col-md-6
+          h4.text-white.mb-3 Newsletter
+          p Dolor amet sit justo amet elitr clita ipsum elitr est.
+          .position-relative.mx-auto(style='max-width: 400px;')
+            input.form-control.border-primary.w-100.py-3.ps-4.pe-5(type='text' placeholder='Your email')
+            button.btn.btn-primary.py-2.position-absolute.top-0.end-0.mt-2.me-2(type='button') SignUp
     .container
-      .row.align-items-center
-        .col-md-3.col-sm-6.my-3
-          a(href='#!')
-            img.img-fluid.img-brand.d-block.mx-auto(src='/images/img/logos/microsoft.svg', alt='...', aria-label='Microsoft Logo')
-        .col-md-3.col-sm-6.my-3
-          a(href='#!')
-            img.img-fluid.img-brand.d-block.mx-auto(src='/images/img/logos/google.svg', alt='...', aria-label='Google Logo')
-        .col-md-3.col-sm-6.my-3
-          a(href='#!')
-            img.img-fluid.img-brand.d-block.mx-auto(src='/images/img/logos/facebook.svg', alt='...', aria-label='Facebook Logo')
-        .col-md-3.col-sm-6.my-3
-          a(href='#!')
-            img.img-fluid.img-brand.d-block.mx-auto(src='/images/img/logos/ibm.svg', alt='...', aria-label='IBM Logo')
-
-  each product in products
-    .portfolio-modal.modal.fade(id=`portfolioModal-${product.id}` tabindex='-1', role='dialog', aria-hidden='true')
-      .modal-dialog
-        .modal-content
-          .close-modal(data-bs-dismiss='modal')
-            img(src='/images/img/close-icon.svg', alt='Close modal')
-          .container
-            .row.justify-content-center
-              .col-lg-8
-                .modal-body
-                  // Project details
-                  h2.text-uppercase= product.name
-                  p.item-intro.text-muted
-                    | $
-                    = product.price
-                  - if(product.image)
-                    img.img-fluid.d-block.mx-auto(src=`data:image/png;base64,${product.image.toString('base64')}`, alt=`${product.name}`)
-                  - else
-                    img.img-fluid.d-block.mx-auto(src='/images/img/portfolio/1.jpg', alt='...')
-                  p=product.description
-                  ul.list-inline
-                    li
-                      strong Client: Threads
-                    li
-                      strong Category: Illustration
-                  button.btn.btn-primary.btn-xl.text-uppercase(data-bs-dismiss='modal', type='button')
-                    i.fa.fa-xmark.me-1 Add to cart
+      .copyright
+        .row
+          .col-md-6.text-center.text-md-start.mb-3.mb-md-0
+            | &copy; 
+            a.border-bottom(href='#') Your Site Name
+            | , All Right Reserved.
+            | Designed By 
+            a.border-bottom(href='https://htmlcodex.com') HTML Codex
+          .col-md-6.text-center.text-md-end
+            .footer-menu
+              a(href='') Home
+              a(href='') Cookies
+              a(href='') Help
+              a(href='') FQAs
+  a.btn.btn-lg.btn-primary.btn-lg-square.back-to-top(href='#')
+    i.bi.bi-arrow-up

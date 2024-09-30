@@ -1,6 +1,5 @@
-import { getAccessToken, sendMail } from "@configs/mail";
 import models from "@models";
-import { Role, UserInstance } from "@models/user";
+import { UserInstance } from "@models/user";
 import { Request, Response } from "express";
 import { ApplicationController } from ".";
 
@@ -14,42 +13,104 @@ export class UserController extends ApplicationController {
   }
 
   public async create(req: Request, res: Response) {
-    const { confirmPassword, password } = req.body;
+    const { emailAddress, confirmPassword, password } = req.body;
+    const findUserEmailExit = await models.user.findOne({
+      where: {
+        emailAddress: emailAddress,
+      },
+    });
     if (confirmPassword !== password) {
       req.flash("errors", { msg: "Confirm password is not match." });
-      return res.redirect("/users");
+      return res.redirect("/");
+    }
+    if (findUserEmailExit) {
+      req.flash("errors", { msg: "This email is already use." });
+      return res.redirect("/");
     }
 
     const user = (await models.user.create({
-      name: req.body.name,
-      avatarUrl: req.body.avatarUrl,
-      email: req.body.email,
-      password: req.body.password,
-      role: Role.USER,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      contactNumber: req.body.contactNumber,
+      emailAddress: emailAddress,
+      password: password,
+      creditCard: req.body.creditCard,
+      proofID: req.body.proofID,
+      role: req.body.role,
     })) as UserInstance;
+    req.flash("success", { msg: `Created user ${user.lastName}` });
+    res.redirect("/");
+  }
+  public async edit(req: Request, res: Response) {
+    try {
+      const user = await models.user.findOne({
+        where: {
+          id: req.session.userId,
+        },
+      });
 
-    const accessToken = await getAccessToken();
-
-    if (!accessToken) {
-      req.flash("errors", { msg: "Google token has been exprired." });
-      res.redirect("/users");
+      if (!user) {
+        req.flash("errors", { msg: "User not found" });
+        return;
+      }
+      res.render("user.view/profile_edit", { user: user });
+    } catch (error) {
+      req.flash("errors", { msg: "khong biet" });
+      res.redirect("/");
     }
-
-    // TODO Gửi email cho người dùng sau khi tạo
-    sendMail(
-      {
-        to: user.email,
-        subject: "Created user",
-        text: `You has been created user ${user.name}`,
+  }
+  public async update(req: Request, res: Response) {
+    try {
+      const { firstName, lastName, contactNumber, creditCard, proofID } =
+        req.body;
+      const user = await models.user.findOne({
+        where: {
+          id: req.session.userId,
+        },
+      });
+      if (!user) {
+        req.flash("errors", { msg: "User not found" });
+        return;
+      }
+      await models.user.update(
+        {
+          firstName: firstName,
+          lastName: lastName,
+          contactNumber: contactNumber,
+          creditCard: creditCard,
+          proofID: proofID,
+        },
+        {
+          where: {
+            id: req.session.userId,
+          },
+        }
+      );
+      req.flash("success", { msg: "User updated successfully" });
+      res.redirect("/");
+    } catch (error) {
+      console.log(error);
+      req.flash("errors", { msg: "User updated failed" });
+      res.redirect("/");
+    }
+  }
+  public async show(req: Request, res: Response) {
+    const user = (await models.user.findOne({
+      where: {
+        id: req.session.userId,
       },
-      {
-        req,
-        res,
+    })) as UserInstance;
+    const bookings = await models.roomBooking.findAll({
+      include: [
+        {
+          model: models.room,
+          as: "room",
+        },
+      ],
+      where: {
+        userID: user.id,
       },
-      accessToken.token as string
-    );
-
-    req.flash("success", { msg: `Created user ${user.name}` });
-    res.redirect("/users");
+    });
+    res.render("user.view/profile", { user: user, bookings: bookings });
   }
 }

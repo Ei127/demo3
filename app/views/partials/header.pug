@@ -1,28 +1,107 @@
-nav#mainNav.navbar.navbar-expand-lg.navbar-dark.navbar-shrink.fixed-top
-  .container
-    a.navbar-brand(href='/')
-      img(src='/images/img/navbar-logo.svg', alt='...')
-    button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
-      | Menu
-      i.fas.fa-bars.ms-1
-    #navbarResponsive.collapse.navbar-collapse
-      ul.navbar-nav.text-uppercase.ms-auto.py-4.py-lg-0
-        li.nav-item
-          a.nav-link(href='/courses') Courses
-        li.nav-item
-          a.nav-link(href='#services') Services
-        li.nav-item
-          a.nav-link(href='#about') About
-        li.nav-item
-          a.nav-link(href='#team') Team
-        - if (!user)
-          li.nav-item
-            a.nav-link(href='/auth') Login
-        - else
-          li.nav-item
-            a.nav-link(href='/carts') Cart
-          li.nav-item
-            form.nav-link(method='POST' action='/auth?_method=DELETE')
-              img(style='width: 40px; height: 40px; border-radius: 50%' src=`${user.avatarUrl}`)
-              button.btn.btn-danger(type="submit")
-                | Logout
+#spinner.show.bg-white.position-fixed.translate-middle.w-100.vh-100.top-50.start-50.d-flex.align-items-center.justify-content-center
+  .spinner-border.text-primary(style='width: 3rem; height: 3rem;' role='status')
+    span.sr-only Loading...
+.container-fluid.bg-dark.px-5.d-none.d-lg-block
+  .row.gx-0
+    .col-lg-8.text-center.text-lg-start.mb-2.mb-lg-0
+      .d-inline-flex.align-items-center(style='height: 45px;')
+        small.me-3.text-light
+          i.fa.fa-map-marker-alt.me-2
+          | 123 Street, New York, USA
+        small.me-3.text-light
+          i.fa.fa-phone-alt.me-2
+          | +012 345 6789
+        small.text-light
+          i.fa.fa-envelope-open.me-2
+          | info@example.com
+    .col-lg-4.text-center.text-lg-end
+      .d-inline-flex.align-items-center(style='height: 45px;')
+        a.btn.btn-sm.btn-outline-light.btn-sm-square.rounded-circle.me-2(href='')
+          i.fab.fa-twitter.fw-normal
+        a.btn.btn-sm.btn-outline-light.btn-sm-square.rounded-circle.me-2(href='')
+          i.fab.fa-facebook-f.fw-normal
+        a.btn.btn-sm.btn-outline-light.btn-sm-square.rounded-circle.me-2(href='')
+          i.fab.fa-linkedin-in.fw-normal
+        a.btn.btn-sm.btn-outline-light.btn-sm-square.rounded-circle.me-2(href='')
+          i.fab.fa-instagram.fw-normal
+        a.btn.btn-sm.btn-outline-light.btn-sm-square.rounded-circle(href='')
+          i.fab.fa-youtube.fw-normal
+.container-fluid.position-relative.p-0
+  nav.navbar.navbar-expand-lg.navbar-light.px-4.px-lg-5.py-3.py-lg-0
+    a.navbar-brand.p-0(href='')
+      h1.text-primary.m-0
+        i.fa.fa-map-marker-alt.me-3
+        | Tourist
+    button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarCollapse')
+      span.fa.fa-bars
+    #navbarCollapse.collapse.navbar-collapse
+      .navbar-nav.ms-auto.py-0
+        a.nav-item.nav-link.active(href='/') Home
+        a.nav-item.nav-link(href='about.html') About
+        a.nav-item.nav-link(href='service.html') Services
+        a.nav-item.nav-link(href='package.html') Packages
+        .nav-item.dropdown
+          a.nav-link.dropdown-toggle(href='#' data-bs-toggle='dropdown') Pages
+          .dropdown-menu.m-0
+            a.dropdown-item(href='destination.html') Destination
+            a.dropdown-item(href='booking.html') Booking
+            a.dropdown-item(href='team.html') Travel Guides
+            a.dropdown-item(href='testimonial.html') Testimonial
+            a.dropdown-item(href='404.html') 404 Page
+        a.nav-item.nav-link(href='contact.html') Contact
+      - if(!user)
+          a.btn.btn-primary.rounded-pill.py-2.px-4(href='/users/new') Admin register
+          a.btn.btn-primary.rounded-pill.py-2.px-4(href='/guests/new') Register
+          a.btn.btn-primary.rounded-pill.py-2.px-4(href='/auth') Login
+      - else
+        - if(user.role == 3)
+            nav-item.dropdown
+              a.nav-link.dropdown-toggle(href='#' data-bs-toggle='dropdown')
+                i.fa-solid.fa-user
+                p= user.lastName+user.firstName
+              .dropdown-menu.m-0
+                a.dropdown-item(href=`/users/${user.id}`) Your profile
+                a.dropdown-item(href='booking.html') Booking
+                a.dropdown-item(href='team.html') Rating
+                a.dropdown-item(href='404.html')
+                  form.dropdown-item.inforuser(method="post" action=`/auth/${user.id}?_method=DELETE`)
+                    button.btn.btn-danger(type="submit")
+                      p Log out
+        - else if(user.role == 0)
+            nav-item.dropdown
+              a.nav-link.dropdown-toggle(href='#' data-bs-toggle='dropdown')
+                i.fa-solid.fa-user
+                p= user.lastName+user.firstName
+              .dropdown-menu.m-0
+                a.dropdown-item(href=`/users/${user.id}`) Your profile
+                a.dropdown-item(href='booking.html') Booking
+                a.dropdown-item(href='team.html') Rating
+                a.dropdown-item(href='team.html') List Guest Account
+                a.dropdown-item(href='team.html') List Receptionist Account
+                a.dropdown-item(href='404.html')
+                  form.dropdown-item.inforuser(method="post" action=`/auth/${user.id}?_method=DELETE`)
+                    button.btn.btn-danger(type="submit")
+                      p Log out
+        - else if(user.role == 1)
+            nav-item.dropdown
+              a.nav-link.dropdown-toggle(href='#' data-bs-toggle='dropdown')
+                i.fa-solid.fa-user
+                p= user.lastName+user.firstName
+              .dropdown-menu.m-0
+                a.dropdown-item(href=`/users/${user.id}`) Your profile
+                a.dropdown-item(href='booking.html') Booking
+                a.dropdown-item(href='team.html') Rating
+                a.dropdown-item(href='team.html') List Guest Account
+                a.dropdown-item(href='404.html')
+                  form.dropdown-item.inforuser(method="post" action=`/auth/${user.id}?_method=DELETE`)
+                    button.btn.btn-danger(type="submit")
+                      p Log out
+  .container-fluid.bg-primary.py-5.mb-5.hero-header
+    .container.py-5
+      .row.justify-content-center.py-5
+        .col-lg-10.pt-lg-5.mt-lg-5.text-center
+          h1.display-3.text-white.mb-3.animated.slideInDown Enjoy Your Vacation With Us
+          p.fs-4.text-white.mb-4.animated.slideInDown Tempor erat elitr rebum at clita diam amet diam et eos erat ipsum lorem sit
+          .position-relative.w-75.mx-auto.animated.slideInDown
+            input.form-control.border-0.rounded-pill.w-100.py-3.ps-4.pe-5(type='text' placeholder='Eg: Thailand')
+            button.btn.btn-primary.rounded-pill.py-2.px-4.position-absolute.top-0.end-0.me-2(type='button' style='margin-top: 7px;') Search

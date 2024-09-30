@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+  section.bg-light
+    .container
+      h1.text-center Create user
+      form(action="/rooms" method="POST")
+        .row
+          .col-12
+            .form-group
+              label(for='room-number') Room Number
+              input#room-number.form-control(type='text' name='roomNumber' placeholder='Input Room Number')
+          .col-12
+            .form-group
+              label(for='room-type') Choose room type:
+              select#room-type(name='roomTypeID')
+                option(value= 1) Single Room
+                option(value= 2) Couple Room
+                option(value= 3) VIP
+          //- .col-12.text-center
+          //-   img#preview-avatar(src="" alt="Avatar Preview" style="width: 200px; height: 200px")
+          //- .col-12
+          //-   .form-group
+          //-     label(for='avatar-link') Avatar link
+          //-     input#avatar-link.form-control(type='text' name='avatarUrl' placeholder='Input your avatar link')
+          .col-12
+            .form-group
+              label(for='cost') Price
+              input#cost.form-control(type='text' name='cost' placeholder='Input Room price')
+          .col-12
+            button.btn.btn-primary.w-100(type="submit") Submit

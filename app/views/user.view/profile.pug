@@ -1,0 +1,72 @@
+extends ../layout
+
+block content
+  section.w-100.px-4.py-5(style='background-color: #9de2ff; border-radius: .5rem .5rem 0 0;')
+    .row.d-flex.justify-content-center
+      .col.col-md-9.col-lg-7.col-xl-6
+        .card(style='border-radius: 15px;')
+          .card-body.p-4
+            .d-flex
+              .flex-shrink-0
+                img.img-fluid(src='https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small_2x/user-profile-icon-free-vector.jpg' alt='Generic placeholder image' style='width: 180px; border-radius: 10px;')
+              .flex-grow-1.ms-3
+                h5.mb-1= user.firstName + " " + user.lastName
+                p.mb-2.pb-1= user.emailAddress
+                .d-flex.justify-content-start.rounded-3.p-2.mb-2.bg-body-tertiary
+                  div
+                    p.small.text-muted.mb-1 Role
+                    - if(user.role == 3)
+                        p.mb-0 Guest
+                    - else if(user.role == 0)
+                        p.mb-0 Manager
+                    - else
+                        p.mb-0 Receptionist
+                  .px-3
+                    p.small.text-muted.mb-1 Followers
+                    p.mb-0 976
+                  div
+                    p.small.text-muted.mb-1 Rating
+                    p.mb-0 8.5
+                .d-flex.pt-1
+                  a.btn.btn-outline-primary.me-1.flex-grow-1(href=`/users/${user.id}/edit`) Edit
+                  button.btn.btn-primary.flex-grow-1(type='button' data-mdb-button-init='' data-mdb-ripple-init='') Follow
+      table.table.text-center
+        thead
+          tr.table-warning
+            th(scope='col') Number
+            th(scope='col') Room Type
+            th(scope='col') Cost
+            th(scope='col') Status
+            th(scope='col') Booking
+            th(scope='col') Control
+        tbody
+          each booking in bookings
+            tr
+              th(scope='row')= booking.room.roomNumber
+              - if(booking.room.roomTypeID == 1)
+                  td Single room
+              - else if(booking.room.roomTypeID == 2)
+                  td Couple room
+              - else
+                  td VIP room
+              td= booking.room.cost
+              - if(booking.room.status == 0)
+                  td Empty
+              - else if(booking.room.status == 1)
+                  td Booked
+              - else
+                  td Fixing
+              - if(booking.room.status == 0)
+                  td
+                    form(method="POST" action=`/booking`)
+                      input(type="hidden" name="roomID" value=`${booking.room.id}`)
+                      button.btn.btn-primary(type="submit")
+                        i.fa-solid.fa-coins
+              - else
+                  td
+                    button.btn.btn-secondary(type='button' disabled='') Booked
+              td
+                form(method="POST" action=`/booking/${booking.id}?_method=DELETE`)
+                  button.btn.btn-danger(type="submit")
+                    p Cancel
+

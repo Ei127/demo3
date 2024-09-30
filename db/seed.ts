@@ -10,7 +10,7 @@ const seedProduct = async () => {
     });
   }
 
-  await models.cart.bulkCreate(data);
+  await models.room.bulkCreate(data);
 };
 
 seedProduct();

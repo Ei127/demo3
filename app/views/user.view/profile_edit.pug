@@ -1,0 +1,51 @@
+extends ../layout
+
+block content
+  section.bg-light
+    .container.rounded.bg-white.mt-5.mb-5
+      .row
+        .col-md-3.border-right
+          .d-flex.flex-column.align-items-center.text-center.p-3.py-5
+            img.rounded-circle.mt-5(width='150px' src='https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg')
+            span.font-weight-bold= user.firstName + " " + user.lastName
+            span.text-black-50= user.emailAddress
+            span  
+        .col-md-5.border-right
+          .p-3.py-5
+            .d-flex.justify-content-between.align-items-center.mb-3
+              h4.text-right Profile Settings
+            form(action=`/users/${user.id}?_method=PUT` method="POST")
+              .row.mt-2
+                .col-md-6
+                  label.labels First Name
+                  input.form-control(type='text' value=`${user.firstName}` name="firstName")
+                .col-md-6
+                  label.labels Last name
+                  input.form-control(type='text' value=`${user.lastName}` name="lastName")
+              .row.mt-3
+                .col-md-12
+                  label.labels Mobile Number
+                  input.form-control(type='text' name="contactNumber" value=`${user.contactNumber}`)
+                .col-md-12
+                  label.labels Credit Card
+                  input.form-control(type='text' name="creditCard" value=`${user.creditCard}`)
+                .col-md-12
+                  label.labels Proof ID
+                  input.form-control(type='text' name="proofID" value=`${user.proofID}`)
+              .mt-5.text-center
+                button.btn.btn-primary.profile-button(type='submit') Save Profile
+        .col-md-4
+          .p-3.py-5
+            .d-flex.justify-content-between.align-items-center.experience
+              span Edit Experience
+              span.border.px-3.p-1.add-experience
+                i.fa.fa-plus
+                | &nbsp;Experience
+            br
+            .col-md-12
+              label.labels Experience in Designing
+              input.form-control(type='text' placeholder='experience' value='')
+            br
+            .col-md-12
+              label.labels Additional Details
+              input.form-control(type='text' placeholder='additional details' value='')

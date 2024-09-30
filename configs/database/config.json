@@ -1,6 +1,9 @@
 {
   "development": {
-    "dialect": "sqlite",
-    "storage": "./db/schema/app.db"
+    "username": "root",
+    "password": "94639155",
+    "database": "test1",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   }
 }

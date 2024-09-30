@@ -1,0 +1,57 @@
+extends ../layout
+
+block content
+  section.bg-light
+    .container
+      h1.text-center Create user
+      form(action="/guests" method="POST")
+        .row
+          .col-12
+            .form-group
+              label(for='first-name') First Name
+              input#first-name.form-control(type='text' name='firstName' placeholder='Input your First Name')
+          .col-12
+            .form-group
+              label(for='last-name') Last Name
+              input#last-name.form-control(type='text' name='lastName' placeholder='Input your First Name')
+          //- .col-12.text-center
+          //-   img#preview-avatar(src="" alt="Avatar Preview" style="width: 200px; height: 200px")
+          //- .col-12
+          //-   .form-group
+          //-     label(for='avatar-link') Avatar link
+          //-     input#avatar-link.form-control(type='text' name='avatarUrl' placeholder='Input your avatar link')
+          .col-12
+            .form-group
+              label(for='contact-number') Contact Number
+              input#contact-number.form-control(type='text' name='contactNumber' placeholder='Input your phone number')
+          .col-12
+            .form-group
+              label(for='email') Email
+              input#email.form-control(type='email' name='emailAddress' placeholder='Input your email')
+          .col-6
+            .form-group
+              label(for='password') Password
+              input#password.form-control(type='password' name='password' placeholder='Input your password')
+          .col-6
+            .form-group
+              label(for='confirm-password') Confirm Password
+              input#confirm-password.form-control(type='password' name='confirmPassword' placeholder='Input your confirm password')
+          .col-12
+            .form-group
+              label(for='credit-card') Credit Card
+              input#credit-card.form-control(type='text' name='creditCard' placeholder='Input your credit card')
+          .col-12
+            .form-group
+              label(for='proof-id') Proof ID
+              input#proof-id.form-control(type='text' name='proofID' placeholder='Input your proof ID')
+          .col-12
+            button.btn.btn-primary.w-100(type="submit") Submit
+
+  //- script.
+  //-   const avatarLinkTag = document.getElementById('avatar-link');
+
+  //-   avatarLinkTag.onchange = () => {
+  //-     const avatarPreviewTag = document.getElementById('preview-avatar');
+
+  //-     avatarPreviewTag.src = avatarLinkTag.value;
+    }

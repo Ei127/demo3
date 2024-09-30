@@ -1,0 +1,45 @@
+extends ../layout
+
+block content
+  section.bg-light
+    .container
+      h1.text-center Booking
+      table.table.text-center
+        thead
+          tr.table-warning
+            th(scope='col') Number
+            th(scope='col') Room Type
+            th(scope='col') Cost
+            th(scope='col') Status
+            th(scope='col') Booking
+            th(scope='col') Control
+        tbody
+          each booking in bookings
+            tr
+              th(scope='row')= booking.room.roomNumber
+              - if(booking.room.roomTypeID == 1)
+                  td Single room
+              - else if(booking.room.roomTypeID == 2)
+                  td Couple room
+              - else
+                  td VIP room
+              td= booking.room.cost
+              - if(booking.room.status == 0)
+                  td Empty
+              - else if(booking.room.status == 1)
+                  td Booked
+              - else
+                  td Fixing
+              - if(booking.room.status == 0)
+                  td
+                    form(method="POST" action=`/booking`)
+                      input(type="hidden" name="roomID" value=`${booking.room.id}`)
+                      button.btn.btn-primary(type="submit")
+                        i.fa-solid.fa-coins
+              - else
+                  td
+                    button.btn.btn-secondary(type='button' disabled='') Booked
+              td
+                form(method="POST" action=`/booking/${booking.id}?_method=DELETE`)
+                  button.btn.btn-danger(type="submit")
+                    p Cancel
